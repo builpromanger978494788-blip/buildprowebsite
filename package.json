@@ -1,0 +1,13 @@
+{
+  "name": "vastu-purush-buildpro",
+  "version": "1.0.0",
+  "description": "BuildPro - Construction Management ERP Landing Page by Vastu Purush",
+  "homepage": "https://builpromanger978494788-blip.github.io/buildprowebsite/",
+  "scripts": {
+    "dev": "npx -y live-server --port=3000 --no-browser",
+    "deploy": "gh-pages -d ."
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
