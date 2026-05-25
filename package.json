@@ -1,0 +1,8 @@
+{
+  "name": "vastu-purush-buildpro",
+  "version": "1.0.0",
+  "description": "BuildPro - Construction Management ERP Landing Page by Vastu Purush",
+  "scripts": {
+    "dev": "npx -y live-server --port=3000 --no-browser"
+  }
+}
