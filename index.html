@@ -14,14 +14,16 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="container nav-inner">
-      <a href="#" class="logo">
+      <a href="#home" class="logo">
         <span class="logo-icon">🏠</span> Vastu Purush
       </a>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
         <li><a href="#services">Our Services</a></li>
-        <li><a href="#process">How It Works</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#faq">Client FAQs</a></li>
+        <li><a href="#contact">Contact Us</a></li>
       </ul>
       <a href="#contact" class="btn btn-primary nav-cta">Book Consultation</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -30,15 +32,17 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <header class="hero">
+  <!-- HOME PAGE (LANDING VIEW) -->
+  <div id="home" class="page-section active">
+    <!-- HERO SECTION -->
+    <header class="hero" id="hero">
     <div class="container hero-container">
       <div class="hero-content">
         <div class="badge">Trusted by 100+ Homeowners</div>
         <h1>Build Your Dream Space with Expert Guidance.</h1>
         <p>From Vastu-compliant architectural designs to flawless construction execution, we guide you through every step of building your perfect home or workspace.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary btn-lg">Get a Free Estimate</a>
+          <a href="#contact" class="btn btn-primary btn-lg">Book a Free Consultation</a>
           <a href="#services" class="btn btn-outline btn-lg">Explore Services</a>
         </div>
       </div>
@@ -59,86 +63,138 @@
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- SERVICES SECTION -->
-  <section class="section bg-light" id="services">
+    <!-- PORTFOLIO SECTION -->
+    <section class="section bg-light" id="portfolio">
+      <div class="container">
+        <div class="section-header center">
+          <span class="subtitle">Our Works</span>
+          <h2>Recent Projects Showcase</h2>
+          <p>Explore some of our premium residential and commercial projects built with architectural excellence and Vastu principles.</p>
+        </div>
+
+        <!-- Portfolio Filter Buttons -->
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="residential">Residential</button>
+          <button class="filter-btn" data-filter="commercial">Commercial</button>
+          <button class="filter-btn" data-filter="vastu">Vastu Consulting</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+          <!-- Project 1 -->
+          <div class="portfolio-item" data-category="residential">
+            <div class="portfolio-img-container">
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1000&auto=format&fit=crop" alt="Premium Modern Villa">
+              <div class="portfolio-overlay">
+                <span class="project-tag">Residential</span>
+                <h3>The Nirvana Villa</h3>
+                <p>Noida, Sector 50</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="portfolio-item" data-category="commercial">
+            <div class="portfolio-img-container">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" alt="Modern Commercial Office">
+              <div class="portfolio-overlay">
+                <span class="project-tag">Commercial</span>
+                <h3>Zenith Tech Hub</h3>
+                <p>Gurgaon, Golf Course Road</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="portfolio-item" data-category="vastu">
+            <div class="portfolio-img-container">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop" alt="Vastu compliant interiors">
+              <div class="portfolio-overlay">
+                <span class="project-tag">Vastu Consulting</span>
+                <h3>Saraswati Sadan</h3>
+                <p>Delhi, GK-II</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="portfolio-item" data-category="residential">
+            <div class="portfolio-img-container">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" alt="Luxury duplex home">
+              <div class="portfolio-overlay">
+                <span class="project-tag">Residential</span>
+                <h3>Elysian Duplex</h3>
+                <p>Faridabad, Sector 15</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="portfolio-item" data-category="commercial">
+            <div class="portfolio-img-container">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" alt="Commercial Coworking Space">
+              <div class="portfolio-overlay">
+                <span class="project-tag">Commercial</span>
+                <h3>Innov8 Coworking</h3>
+                <p>Noida, Sector 62</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="portfolio-item" data-category="vastu">
+            <div class="portfolio-img-container">
+              <img src="https://images.unsplash.com/photo-1545464693-f1798a373343?q=80&w=1000&auto=format&fit=crop" alt="Traditional Vastu home entrance">
+              <div class="portfolio-overlay">
+                <span class="project-tag">Vastu Consulting</span>
+                <h3>Aurobindo Ashram Center</h3>
+                <p>Puducherry</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+  <section class="section" id="reviews">
     <div class="container">
       <div class="section-header center">
-        <span class="subtitle">How We Help You</span>
-        <h2>Comprehensive Construction Solutions</h2>
-        <p>We offer end-to-end services so you don't have to deal with multiple contractors.</p>
-      </div>
-      
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🏗️</div>
-          <h3>Turnkey Construction</h3>
-          <p>From foundation to finishing, we handle the entire construction process. You get the keys to a fully finished, ready-to-move-in home.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">🧭</div>
-          <h3>Vastu Consultation</h3>
-          <p>Expert Vastu Shastra guidance to ensure your home brings health, wealth, and positivity. We integrate Vastu seamlessly into modern designs.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">📐</div>
-          <h3>Architectural Design</h3>
-          <p>Custom 2D floor plans, 3D elevations, and structural designs tailored to your family's needs, budget, and aesthetic preferences.</p>
-        </div>
-        
-        <div class="service-card">
-          <div class="service-icon">🛋️</div>
-          <h3>Interior Design</h3>
-          <p>Premium interior finishing including modular kitchens, false ceilings, custom wardrobes, and smart home integrations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS SECTION -->
-  <section class="section" id="process">
-    <div class="container">
-      <div class="section-header">
-        <span class="subtitle">Transparent Workflow</span>
-        <h2>Your Journey with Us</h2>
-        <p>Building a home can be stressful. Our clear, 4-step process ensures you are always informed and in control.</p>
+        <span class="subtitle">Client Experiences</span>
+        <h2>What Our Clients Say</h2>
+        <p>Real stories from homeowners who built their dream spaces with us.</p>
       </div>
 
-      <div class="process-timeline">
-        <div class="process-step">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Initial Consultation & Site Visit</h3>
-            <p>We meet to understand your vision, budget, and requirements. Our experts visit your plot to analyze soil, dimensions, and Vastu directions.</p>
-          </div>
+      <div class="reviews-container">
+        <!-- Displayed Reviews -->
+        <div class="reviews-list" id="dynamicReviews">
+          <!-- Reviews will be loaded from Firebase here -->
         </div>
-        
-        <div class="process-step">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Design & Approval</h3>
-            <p>Our architects create customized Vastu-compliant floor plans and 3D elevations. We revise them until you are 100% satisfied, then get necessary municipal approvals.</p>
-          </div>
-        </div>
-        
-        <div class="process-step">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Construction & Updates</h3>
-            <p>Construction begins with top-grade materials. You receive regular progress reports, photos, and site visit invitations to track the development.</p>
-          </div>
-        </div>
-        
-        <div class="process-step">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Quality Check & Handover</h3>
-            <p>After a rigorous multi-point quality inspection of plumbing, electricals, and finishes, we hand over the keys to your dream home.</p>
-          </div>
+
+        <!-- Submit Review Form -->
+        <div class="review-form-card">
+          <h3>Share Your Experience</h3>
+          <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px;">We value your feedback. Leave a review to help others build better.</p>
+          <form class="review-form" id="reviewForm">
+            <div class="form-group">
+              <input type="text" id="reviewerName" placeholder="Your Name" required>
+            </div>
+            <div class="star-rating-select" id="starSelector">
+              <span class="star-select active" data-value="1">★</span>
+              <span class="star-select active" data-value="2">★</span>
+              <span class="star-select active" data-value="3">★</span>
+              <span class="star-select active" data-value="4">★</span>
+              <span class="star-select active" data-value="5">★</span>
+            </div>
+            <input type="hidden" id="ratingValue" value="5">
+            <div class="form-group">
+              <textarea id="reviewText" rows="3" placeholder="Write your review here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline btn-block" id="reviewSubmitBtn">Submit Review</button>
+          </form>
         </div>
       </div>
     </div>
@@ -204,72 +260,193 @@
       </div>
     </div>
   </section>
+</div>
 
-  <!-- REVIEWS SECTION -->
-  <section class="section" id="reviews">
+  <!-- ABOUT US SECTION -->
+  <section class="section page-section" id="about">
+    <!-- Subtle Animated Background Elements -->
+    <div class="about-bg-animations">
+      <div class="anim-circle circle-1"></div>
+      <div class="anim-circle circle-2"></div>
+      <div class="anim-grid-dots"></div>
+    </div>
+
     <div class="container">
-      <div class="section-header center">
-        <span class="subtitle">Client Experiences</span>
-        <h2>What Our Clients Say</h2>
-        <p>Real stories from homeowners who built their dream spaces with us.</p>
-      </div>
-
-      <div class="reviews-container">
-        <!-- Displayed Reviews -->
-        <div class="reviews-list">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"Vastu Purush completely transformed our experience. They handled everything from the Vastu-compliant design to the final paint job. Highly professional team!"</p>
-            <div class="reviewer">
-              <div class="avatar">R</div>
-              <div>
-                <strong>Rajesh Sharma</strong>
-                <span>Noida, UP</span>
-              </div>
-            </div>
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1000&auto=format&fit=crop" alt="Vastu Purush Team Office" class="rounded-image shadow-lg">
+          <div class="experience-badge">
+            <span class="num">15+</span>
+            <span class="lbl">Years of Excellence</span>
           </div>
+        </div>
+        <div class="about-content">
+          <span class="subtitle">About Vastu Purush</span>
+          <h2>Blending Modern Architecture with Ancient Vastu Shastra</h2>
+          <p>Founded with a vision to create spaces that bring peace, health, and prosperity, Vastu Purush is a premier turnkey construction and architectural consultancy. We believe a home is not just bricks and concrete, but a living sanctuary where energy flows.</p>
+          <p>Our team of expert architects, structural engineers, and certified Vastu consultants work in unison to design and construct homes that are visually stunning, structurally robust, and energetically balanced.</p>
           
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"The transparency in pricing and timeline was refreshing. The 3D designs matched the final outcome perfectly. I highly recommend them for turnkey projects."</p>
-            <div class="reviewer">
-              <div class="avatar">M</div>
-              <div>
-                <strong>Meera Patel</strong>
-                <span>Gurgaon, HR</span>
-              </div>
+          <div class="stats-row">
+            <div class="stat-card">
+              <h3>150+</h3>
+              <p>Completed Projects</p>
+            </div>
+            <div class="stat-card">
+              <h3>100%</h3>
+              <p>Vastu Compliant</p>
+            </div>
+            <div class="stat-card">
+              <h3>45+</h3>
+              <p>Expert Artisans</p>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Submit Review Form -->
-        <div class="review-form-card">
-          <h3>Share Your Experience</h3>
-          <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px;">We value your feedback. Leave a review to help others build better.</p>
-          <form class="review-form" id="reviewForm">
-            <div class="form-group">
-              <input type="text" id="reviewerName" placeholder="Your Name" required>
+      <!-- Vision & Mission Section -->
+      <div class="about-vision-mission">
+        <div class="vision-card">
+          <div class="icon">🧭</div>
+          <h3>Our Vision</h3>
+          <p>To redefine the construction industry by building living spaces that harmoniously co-exist with nature's cosmic forces, promoting holistic well-being, success, and inner peace for every inhabitant.</p>
+        </div>
+        <div class="mission-card">
+          <div class="icon">🏗️</div>
+          <h3>Our Mission</h3>
+          <p>To deliver uncompromising quality, absolute transparency, and architectural brilliance on every project, ensuring every building is constructed exactly as per Vastu principles without losing modern aesthetics.</p>
+        </div>
+      </div>
+
+      <!-- Board of Directors Section -->
+      <div class="about-directors-section">
+        <div class="section-header center">
+          <span class="subtitle">Leadership</span>
+          <h2>Board of Directors</h2>
+          <p>Meet the visionary minds driving the standards of Vastu-compliant modern construction.</p>
+        </div>
+        <div class="directors-grid">
+          <!-- Director 1 -->
+          <div class="director-card">
+            <div class="director-img-container">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" alt="Founder & CEO">
             </div>
-            <div class="star-rating-select" id="starSelector">
-              <span class="star-select active" data-value="1">★</span>
-              <span class="star-select active" data-value="2">★</span>
-              <span class="star-select active" data-value="3">★</span>
-              <span class="star-select active" data-value="4">★</span>
-              <span class="star-select active" data-value="5">★</span>
+            <div class="director-info">
+              <h3>Acharya Shailesh Dwivedi</h3>
+              <span class="role">Founder & Chief Vastu Advisor</span>
+              <p>With over 20 years of research in Vedic sciences and structural dynamics, Acharya Shailesh has guided more than 500 residential and commercial designs worldwide.</p>
             </div>
-            <input type="hidden" id="ratingValue" value="5">
-            <div class="form-group">
-              <textarea id="reviewText" rows="3" placeholder="Write your review here..." required></textarea>
+          </div>
+
+          <!-- Director 2 -->
+          <div class="director-card">
+            <div class="director-img-container">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" alt="Chief Architect">
             </div>
-            <button type="submit" class="btn btn-outline btn-block" id="reviewSubmitBtn">Submit Review</button>
-          </form>
+            <div class="director-info">
+              <h3>Ar. Priya Malhotra</h3>
+              <span class="role">Co-Founder & Principal Architect</span>
+              <p>An alumnus of IIT Roorkee, Priya specializes in sustainable, modern architecture, seamlessly embedding micro-Vastu corrections into contemporary layouts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staff/Team Section -->
+      <div class="about-staff-section">
+        <div class="section-header center">
+          <span class="subtitle">The Experts Behind Your Home</span>
+          <h2>Our Core Staff</h2>
+          <p>Our dedicated team of engineers, supervisors, and designers who turn blueprints into brick-and-mortar reality.</p>
+        </div>
+        <div class="staff-grid">
+          <!-- Staff 1 -->
+          <div class="staff-card">
+            <div class="staff-img-container">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" alt="Structural Engineer">
+            </div>
+            <div class="staff-info">
+              <h4>Er. Vikrant Sen</h4>
+              <span>Senior Structural Engineer</span>
+            </div>
+          </div>
+
+          <!-- Staff 2 -->
+          <div class="staff-card">
+            <div class="staff-img-container">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" alt="Interior designer">
+            </div>
+            <div class="staff-info">
+              <h4>Ananya Hegde</h4>
+              <span>Head of Interior Design</span>
+            </div>
+          </div>
+
+          <!-- Staff 3 -->
+          <div class="staff-card">
+            <div class="staff-img-container">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop" alt="Project Manager">
+            </div>
+            <div class="staff-info">
+              <h4>Er. Sameer Khan</h4>
+              <span>Project Construction Manager</span>
+            </div>
+          </div>
+
+          <!-- Staff 4 -->
+          <div class="staff-card">
+            <div class="staff-img-container">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop" alt="Vastu Auditor">
+            </div>
+            <div class="staff-info">
+              <h4>Dr. Raghav Joshi</h4>
+              <span>Vastu Energy Auditor</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SERVICES SECTION -->
+  <section class="section bg-light page-section" id="services">
+    <div class="container">
+      <div class="section-header center">
+        <span class="subtitle">How We Help You</span>
+        <h2>Comprehensive Construction Solutions</h2>
+        <p>We offer end-to-end services so you don't have to deal with multiple contractors.</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>Turnkey Construction</h3>
+          <p>From foundation to finishing, we handle the entire construction process. You get the keys to a fully finished, ready-to-move-in home.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🧭</div>
+          <h3>Vastu Consultation</h3>
+          <p>Expert Vastu Shastra guidance to ensure your home brings health, wealth, and positivity. We integrate Vastu seamlessly into modern designs.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📐</div>
+          <h3>Architectural Design</h3>
+          <p>Custom 2D floor plans, 3D elevations, and structural designs tailored to your family's needs, budget, and aesthetic preferences.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🛋️</div>
+          <h3>Interior Design</h3>
+          <p>Premium interior finishing including modular kitchens, false ceilings, custom wardrobes, and smart home integrations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- CONTACT SECTION -->
-  <section class="section bg-light" id="contact">
+  <section class="section bg-light page-section" id="contact">
     <div class="container contact-container">
       <div class="contact-info">
         <h2>Let's Discuss Your Project</h2>
@@ -302,7 +479,7 @@
       
       <div class="contact-form-card">
         <h3>Request a Free Consultation</h3>
-        <form class="contact-form">
+        <form class="contact-form" id="consultationForm">
           <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" placeholder="John Doe" required>
@@ -334,15 +511,15 @@
   <footer class="footer">
     <div class="container footer-content">
       <div class="footer-brand">
-        <a href="#" class="logo"><span class="logo-icon">🏠</span> Vastu Purush</a>
+        <a href="#home" class="logo"><span class="logo-icon">🏠</span> Vastu Purush</a>
         <p>Your trusted partner in building spaces that inspire, protect, and prosper.</p>
       </div>
       <div class="footer-links">
+        <a href="#about">About Us</a>
         <a href="#services">Services</a>
-        <a href="#process">Process</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQs</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact">Contact Us</a>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -352,5 +529,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script type="module" src="firebase-website.js"></script>
 </body>
 </html>

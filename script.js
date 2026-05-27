@@ -41,26 +41,113 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- SMOOTH SCROLLING ---
+  // --- ROUTING / PAGE SWITCHING ---
+  const navLinksList = document.getElementById('navLinks');
+  
+  function showPage(targetId) {
+    const pageId = targetId.startsWith('#') ? targetId.substring(1) : targetId;
+    if (!pageId) return;
+    
+    // Determine which main page section to show
+    let mainPageId = pageId;
+    let subSectionId = null;
+    
+    // If the target is reviews, faq, or portfolio, the main page is 'home'
+    if (pageId === 'reviews' || pageId === 'faq' || pageId === 'portfolio') {
+      mainPageId = 'home';
+      subSectionId = pageId;
+    }
+    
+    const targetPage = document.getElementById(mainPageId);
+    if (!targetPage || !targetPage.classList.contains('page-section')) return;
+    
+    // Hide all pages
+    document.querySelectorAll('.page-section').forEach(page => {
+      page.classList.remove('active');
+    });
+    
+    // Show target page
+    targetPage.classList.add('active');
+    
+    // Update active nav link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === `#${pageId}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+    
+    // Scroll handling
+    if (subSectionId) {
+      const subSection = document.getElementById(subSectionId);
+      if (subSection) {
+        setTimeout(() => {
+          const headerOffset = 80;
+          const elementPosition = subSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant'
+      });
+    }
+  }
+
+  // Handle all hash links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
       const targetId = this.getAttribute('href');
-      if(targetId === '#') return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        // Scroll considering the fixed navbar height
-        const headerOffset = 80;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
-  
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
+      if (targetId === '#') return;
+      
+      const pageId = targetId.substring(1);
+      const isSubSection = pageId === 'reviews' || pageId === 'faq' || pageId === 'portfolio';
+      const targetPage = document.getElementById(pageId);
+      const isPageSection = targetPage && targetPage.classList.contains('page-section');
+      
+      if (isPageSection || isSubSection) {
+        e.preventDefault();
+        showPage(targetId);
+        
+        // Update URL hash
+        if (history.pushState) {
+          history.pushState(null, null, targetId);
+        } else {
+          location.hash = targetId;
+        }
+
+        // If on mobile, hide the menu
+        if (window.innerWidth <= 768 && navLinksList) {
+          navLinksList.style.display = 'none';
+        }
       }
     });
   });
+
+  // Handle browser back/forward buttons (hashchange)
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash || '#home';
+    showPage(hash);
+  });
+
+  // Initial load
+  const initialHash = window.location.hash || '#home';
+  const initialPageId = initialHash.substring(1);
+  const isInitialSub = initialPageId === 'reviews' || initialPageId === 'faq' || initialPageId === 'portfolio';
+  const initialPage = document.getElementById(isInitialSub ? 'home' : initialPageId);
+  if (initialPage && initialPage.classList.contains('page-section')) {
+    showPage(initialHash);
+  } else {
+    showPage('#home');
+  }
 
   // --- FAQ ACCORDION ---
   const faqItems = document.querySelectorAll('.faq-item');
@@ -85,30 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- FORM SUBMISSION MOCK ---
-  const form = document.querySelector('.contact-form');
-  if(form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      
-      btn.textContent = 'Sending...';
-      btn.style.opacity = '0.8';
-      
-      setTimeout(() => {
-        btn.textContent = 'Request Sent Successfully!';
-        btn.style.background = '#10B981'; // Success green
-        form.reset();
-        
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-          btn.style.opacity = '1';
-        }, 3000);
-      }, 1500);
-    });
-  }
+  // Form submissions are now handled in firebase-website.js
   // --- REVIEW FORM INTERACTIVITY ---
   const starSelector = document.getElementById('starSelector');
   const ratingValueInput = document.getElementById('ratingValue');
@@ -134,35 +198,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (reviewForm) {
-    reviewForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = document.getElementById('reviewSubmitBtn');
-      const originalText = btn.textContent;
-      
-      btn.textContent = 'Submitting...';
-      btn.style.opacity = '0.8';
-      
-      setTimeout(() => {
-        btn.textContent = 'Review Submitted!';
-        btn.style.background = '#4CAF50'; // Success green
-        btn.style.color = 'white';
-        btn.style.border = 'none';
-        reviewForm.reset();
-        
-        // Reset stars to 5
-        ratingValueInput.value = 5;
-        starSelector.querySelectorAll('.star-select').forEach(s => s.classList.add('active'));
-        
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-          btn.style.color = '';
-          btn.style.border = '';
-          btn.style.opacity = '1';
-        }, 3000);
-      }, 1500);
+  // Review form submission is handled in firebase-website.js
+
+  // --- PORTFOLIO FILTER ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  if (filterBtns.length > 0 && portfolioItems.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        portfolioItems.forEach(item => {
+          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+            item.style.display = 'block';
+            // Force a layout flash delay then transition in
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 50);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
     });
   }
-
 });
