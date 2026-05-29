@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vastu Purush - Client-focused construction, architecture, and Vastu consultation services.">
-  <title>Vastu Purush | Construction & Vastu Experts</title>
+  <meta name="description" content="VASTUTEJ Infratech - Client-focused construction, architecture, and Vastu consultation services.">
+  <title>VASTUTEJ Infratech | Construction & Vastu Experts</title>
+  <link rel="icon" type="image/png" href="Icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -14,8 +15,12 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="container nav-inner">
-      <a href="#home" class="logo">
-        <span class="logo-icon">🏠</span> Vastu Purush
+      <a href="#home" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="Icon.png" alt="Logo" style="width: 44px; height: 44px; border-radius: 10px; object-fit: contain; background: #fff; padding: 2px; flex-shrink: 0;" />
+        <div style="display: flex; flex-direction: column; line-height: 1.1; margin-top: 2px;">
+          <div style="font-weight: 900; font-size: 16px; color: #111827; letter-spacing: 0.5px; font-family: 'Inter', sans-serif;">VASTUTEJ</div>
+          <div style="font-size: 12px; font-weight: 700; color: #6b7280; letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Inter', sans-serif;">INFRATECH</div>
+        </div>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
@@ -514,7 +519,13 @@
   <footer class="footer">
     <div class="container footer-content">
       <div class="footer-brand">
-        <a href="#home" class="logo"><span class="logo-icon">🏠</span> Vastu Purush</a>
+        <a href="#home" class="logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 12px;">
+          <img src="Icon.png" alt="Logo" style="width: 44px; height: 44px; border-radius: 10px; object-fit: contain; background: #fff; padding: 2px; flex-shrink: 0;" />
+          <div style="display: flex; flex-direction: column; line-height: 1.1; margin-top: 2px;">
+            <div style="font-weight: 900; font-size: 16px; color: #111827; letter-spacing: 0.5px; font-family: 'Inter', sans-serif;">VASTUTEJ</div>
+            <div style="font-size: 12px; font-weight: 700; color: #6b7280; letter-spacing: 0.5px; text-transform: uppercase; font-family: 'Inter', sans-serif;">INFRATECH</div>
+          </div>
+        </a>
         <p>Your trusted partner in building spaces that inspire, protect, and prosper.</p>
       </div>
       <div class="footer-links">
@@ -526,10 +537,20 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; 2026 Vastu Purush. All rights reserved.</p>
+      <p>&copy; 2026 VASTUTEJ Infratech. All rights reserved.</p>
       <p class="credit">Designed by LeoVantage Web Studio</p>
     </div>
   </footer>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-prev" id="lightboxPrev">&#10094;</span>
+    <span class="lightbox-next" id="lightboxNext">&#10095;</span>
+    <div class="lightbox-content" id="lightboxContent">
+      <!-- Images will be injected here dynamically -->
+    </div>
+  </div>
 
   <script src="script.js"></script>
   <script type="module" src="firebase-website.js"></script>

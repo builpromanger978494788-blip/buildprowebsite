@@ -16,12 +16,32 @@ const db = getFirestore(app);
 
 // Update Brand Name
 function updateBrand(name, logoUrl) {
+  const parts = name.split(" ");
+  const word1 = parts[0] || "VASTUTEJ";
+  const word2 = parts.slice(1).join(" ") || "INFRATECH";
+
   document.querySelectorAll('.logo').forEach(el => {
-    if (logoUrl) {
-      el.innerHTML = `<img src="${logoUrl}" alt="${name} logo" style="height:35px; margin-right:10px; vertical-align:middle; border-radius:4px; object-fit:contain;" /> <span style="vertical-align:middle;">${name}</span>`;
-    } else {
-      el.innerHTML = `<span class="logo-icon">🏠</span> ${name}`;
+    el.style.display = "flex";
+    el.style.alignItems = "center";
+    el.style.gap = "10px";
+    el.style.textDecoration = "none";
+    
+    const isFooter = el.closest('.footer') !== null;
+    if (isFooter) {
+      el.style.marginBottom = "12px";
     }
+
+    let imgHtml = logoUrl 
+      ? `<img src="${logoUrl}" alt="Logo" style="width:44px; height:44px; border-radius:10px; object-fit:contain; background:#fff; padding:2px; flex-shrink:0;" />`
+      : `<img src="Icon.png" alt="Logo" style="width:44px; height:44px; border-radius:10px; object-fit:contain; background:#fff; padding:2px; flex-shrink:0;" />`;
+
+    el.innerHTML = `
+      ${imgHtml}
+      <div style="display:flex; align-items:center; gap:6px;">
+        <div style="font-weight:900; font-size:20px; color:${isFooter ? '#ffffff' : '#111827'}; letter-spacing:0.5px; font-family:'Inter',sans-serif;">${word1.toUpperCase()}</div>
+        <div style="font-size:20px; font-weight:900; color:${isFooter ? '#d1d5db' : '#6b7280'}; letter-spacing:1px; text-transform:uppercase; font-family:'Inter',sans-serif;">${word2}</div>
+      </div>
+    `;
   });
   const footerBrand = document.querySelector('.footer-brand p');
   if(footerBrand) footerBrand.textContent = `Your trusted partner in building spaces that inspire, protect, and prosper under the ${name} standard.`;
@@ -31,7 +51,7 @@ function updateBrand(name, logoUrl) {
 // Update DOM with Data
 function renderContent(data) {
   if(!data) return;
-  if(data.brandName || data.brandLogo) updateBrand(data.brandName || "Vastu Purush", data.brandLogo);
+  if(data.brandName || data.brandLogo) updateBrand(data.brandName || "VASTUTEJ Infratech", data.brandLogo);
 
   // Update Hero
   if(data.hero) {
@@ -75,10 +95,14 @@ function renderContent(data) {
     if(pDesc) pDesc.textContent = data.portfolio.description;
     
     if(pGrid && data.portfolio.projects) {
-      pGrid.innerHTML = data.portfolio.projects.map(p => `
+      pGrid.innerHTML = data.portfolio.projects.map(p => {
+        // Support array of imageUrls or fallback to single imageUrl
+        const imagesStr = encodeURIComponent(JSON.stringify(p.imageUrls || (p.imageUrl ? [p.imageUrl] : [])));
+        const thumbUrl = (p.imageUrls && p.imageUrls.length > 0) ? p.imageUrls[0] : (p.imageUrl || '');
+        return `
         <div class="portfolio-item" data-category="${p.category}">
-          <div class="portfolio-img-container">
-            <img src="${p.imageUrl}" alt="${p.title}">
+          <div class="portfolio-img-container" onclick="openLightbox('${imagesStr}')">
+            <img src="${thumbUrl}" alt="${p.title}">
             <div class="portfolio-overlay">
               <span class="project-tag">${p.category === 'vastu' ? 'Vastu Consulting' : p.category.charAt(0).toUpperCase() + p.category.slice(1)}</span>
               <h3>${p.title}</h3>
@@ -86,7 +110,41 @@ function renderContent(data) {
             </div>
           </div>
         </div>
-      `).join('');
+      `}).join('');
+
+      // --- RE-ATTACH PORTFOLIO FILTER LOGIC ---
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+      if (filterBtns.length > 0 && portfolioItems.length > 0) {
+        filterBtns.forEach(btn => {
+          // Remove old listeners to avoid duplicates
+          const newBtn = btn.cloneNode(true);
+          btn.parentNode.replaceChild(newBtn, btn);
+          
+          newBtn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            newBtn.classList.add('active');
+
+            const filterValue = newBtn.getAttribute('data-filter');
+
+            portfolioItems.forEach(item => {
+              if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                item.style.display = 'block';
+                setTimeout(() => {
+                  item.style.opacity = '1';
+                  item.style.transform = 'scale(1)';
+                }, 50);
+              } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                  item.style.display = 'none';
+                }, 300);
+              }
+            });
+          });
+        });
+      }
     }
   }
 
@@ -192,6 +250,78 @@ function renderContent(data) {
     }
   }
 }
+
+// Lightbox Slider State
+let currentLightboxImages = [];
+let currentLightboxIndex = 0;
+
+window.openLightbox = function(imagesStr) {
+  const images = JSON.parse(decodeURIComponent(imagesStr));
+  if (!images || images.length === 0) return;
+  
+  currentLightboxImages = images;
+  currentLightboxIndex = 0;
+  
+  updateLightboxView();
+  document.getElementById('lightbox').classList.add('active');
+};
+
+function updateLightboxView() {
+  const lightboxContent = document.getElementById('lightboxContent');
+  const prevBtn = document.getElementById('lightboxPrev');
+  const nextBtn = document.getElementById('lightboxNext');
+  
+  if(currentLightboxImages.length <= 1) {
+    if(prevBtn) prevBtn.style.display = 'none';
+    if(nextBtn) nextBtn.style.display = 'none';
+  } else {
+    if(prevBtn) prevBtn.style.display = 'block';
+    if(nextBtn) nextBtn.style.display = 'block';
+  }
+  
+  lightboxContent.innerHTML = `<img src="${currentLightboxImages[currentLightboxIndex]}" alt="Project Image" />`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+  }
+  
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if(currentLightboxImages.length > 0) {
+        currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxImages.length;
+        updateLightboxView();
+      }
+    });
+  }
+  
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if(currentLightboxImages.length > 0) {
+        currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxImages.length) % currentLightboxImages.length;
+        updateLightboxView();
+      }
+    });
+  }
+  
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === document.getElementById('lightboxContent')) {
+        lightbox.classList.remove('active');
+      }
+    });
+  }
+});
 
 // 1. Instantly load from cache for blazing fast performance
 const cached = localStorage.getItem('vastu_cms_cache');

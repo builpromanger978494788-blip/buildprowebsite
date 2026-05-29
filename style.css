@@ -701,3 +701,95 @@ a { text-decoration: none; color: inherit; }
   .portfolio-item { height: 220px; }
   .contact-info h2 { font-size: 1.6rem; }
 }
+
+/* --- LIGHTBOX STYLES --- */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  transition: 0.3s;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.lightbox-content {
+  display: flex;
+  gap: 20px;
+  padding: 20px 40px;
+  height: 80vh;
+  margin: auto;
+  align-items: center;
+}
+
+.lightbox-content img {
+  max-height: 100%;
+  max-width: 90vw;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.lightbox-content img:hover {
+  transform: scale(1.02);
+}
+
+/* Enable pointer cursor on portfolio items */
+.portfolio-img-container {
+  cursor: pointer;
+}
+
+.lightbox-prev, .lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 16px;
+  user-select: none;
+  z-index: 10001;
+  transition: 0.3s;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+  color: var(--primary);
+}
