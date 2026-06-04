@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vastutej Infratech — Premium Construction</title>
-  <link rel="icon" type="image/png" href="Icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -1847,10 +1846,9 @@
   <!-- NAV -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo" id="navLogoLink">
-        <img id="navLogoImg" src="Icon.png" alt="Logo" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;display:none;" />
-        <span class="logo-icon" id="navLogoIcon">⬡</span>
-        <span class="logo-text" id="navLogoText">VASTUTEJ <span class="logo-sub" id="navLogoSub">INFRATECH</span></span>
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">VASTUTEJ <span class="logo-sub">INFRATECH</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="nav-link active">Home</a></li>
@@ -1890,16 +1888,16 @@
 
       <div class="hero-container">
         <div class="hero-left reveal">
-          <div class="hero-badge" id="heroBadge">
+          <div class="hero-badge">
             <span class="badge-dot"></span>
-            <span id="heroBadgeText">Premium Construction Since 2009</span>
+            Premium Construction Since 2009
           </div>
-          <h1 class="hero-title" id="heroTitle">
+          <h1 class="hero-title">
             Building Modern<br />
             <em>Spaces</em> With<br />
             Precision &amp; Trust
           </h1>
-          <p class="hero-sub" id="heroSub">
+          <p class="hero-sub">
             Premium construction solutions for residential, commercial, and infrastructure projects across India.
           </p>
           <div class="hero-cta">
@@ -1909,12 +1907,12 @@
         </div>
         <div class="hero-right reveal reveal-delay">
           <div class="hero-img-wrap">
-            <img id="heroImg" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Luxury Building"
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Luxury Building"
               class="hero-img" />
             <div class="hero-img-overlay"></div>
             <div class="hero-card glass-card">
-              <div class="hero-card-num" id="heroCardNum">250+</div>
-              <div class="hero-card-label" id="heroCardLabel">Projects Delivered</div>
+              <div class="hero-card-num">250+</div>
+              <div class="hero-card-label">Projects Delivered</div>
             </div>
           </div>
         </div>
@@ -1924,7 +1922,7 @@
     <!-- STATS -->
     <section class="stats-section">
       <div class="container">
-        <div class="stats-grid" id="statsGrid">
+        <div class="stats-grid">
           <div class="stat-item reveal">
             <div class="stat-num" data-target="250">0</div>
             <div class="stat-plus">+</div>
@@ -1957,7 +1955,7 @@
           <h2 class="section-title">Featured <em>Projects</em></h2>
           <p class="section-sub">Landmark constructions that define excellence</p>
         </div>
-        <div class="projects-grid" id="featuredProjectsGrid">
+        <div class="projects-grid">
           <div class="project-card reveal" style="--delay:0s">
             <div class="project-img-wrap">
               <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&q=80" alt="Residential"
@@ -2005,7 +2003,7 @@
           <div class="section-tag">Why Us</div>
           <h2 class="section-title">Why Choose <em>Vastutej</em></h2>
         </div>
-        <div class="why-grid" id="whyGrid">
+        <div class="why-grid">
           <div class="why-card glass-card reveal" style="--delay:0s">
             <div class="why-icon">◈</div>
             <h3 class="why-title">Quality Construction</h3>
@@ -2041,7 +2039,7 @@
           <div class="section-tag">How We Work</div>
           <h2 class="section-title">Our <em>Process</em></h2>
         </div>
-        <div class="process-timeline" id="processTimeline">
+        <div class="process-timeline">
           <div class="process-step reveal" style="--delay:0s">
             <div class="step-num">01</div>
             <div class="step-line"></div>
@@ -2084,42 +2082,55 @@
         <div class="section-header reveal">
           <div class="section-tag">Client Words</div>
           <h2 class="section-title">What They <em>Say</em></h2>
-          <div style="margin-top: 30px;">
-            <button id="openReviewBtn" class="btn-primary">Write a Review</button>
+        </div>
+        <div class="testimonial-slider reveal">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card glass-card">
+              <div class="testi-quote">"</div>
+              <p class="testi-text">Vastutej delivered our 5-floor commercial complex 3 weeks ahead of schedule. The
+                quality of finish and structural integrity is unmatched. Truly a world-class team.</p>
+              <div class="testi-author">
+                <div class="testi-avatar">R</div>
+                <div>
+                  <div class="testi-name">Rajesh Patil</div>
+                  <div class="testi-role">Director, Patil Group — Pune</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card glass-card">
+              <div class="testi-quote">"</div>
+              <p class="testi-text">From design consultation to final handover, the Vastutej team was professional,
+                transparent, and genuinely passionate about our vision. Our villa is beyond expectations.</p>
+              <div class="testi-author">
+                <div class="testi-avatar">S</div>
+                <div>
+                  <div class="testi-name">Sunita Deshmukh</div>
+                  <div class="testi-role">Homeowner — Sangli</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card glass-card">
+              <div class="testi-quote">"</div>
+              <p class="testi-text">We partnered with Vastutej for our 200-unit residential township. Their project
+                management, quality control, and communication made the entire process seamless.</p>
+              <div class="testi-author">
+                <div class="testi-avatar">A</div>
+                <div>
+                  <div class="testi-name">Amit Kulkarni</div>
+                  <div class="testi-role">CEO, KNR Developers — Mumbai</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <!-- Review Form Container -->
-        <div id="reviewFormContainer" style="display: none; max-width: 600px; margin: 0 auto 50px auto; padding: 30px;" class="glass-card reveal">
-          <h3 style="margin-bottom: 20px; color: var(--gold); font-size: 24px; font-weight: 400; text-align: center;">Share Your Experience</h3>
-          <form id="reviewForm" class="contact-form">
-            <div class="form-row">
-              <div class="form-group">
-                <input type="text" id="revName" class="form-input" placeholder="Your Name *" required />
-              </div>
-              <div class="form-group">
-                <input type="text" id="revRole" class="form-input" placeholder="Your Role/City" />
-              </div>
+          <div class="testi-controls">
+            <button class="testi-btn" id="testiPrev">←</button>
+            <div class="testi-dots" id="testiDots">
+              <span class="testi-dot active"></span>
+              <span class="testi-dot"></span>
+              <span class="testi-dot"></span>
             </div>
-            <div class="form-group">
-              <select id="revRating" class="form-input form-select" required>
-                <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
-                <option value="4">⭐⭐⭐⭐ (Good)</option>
-                <option value="3">⭐⭐⭐ (Average)</option>
-                <option value="2">⭐⭐ (Poor)</option>
-                <option value="1">⭐ (Terrible)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <textarea id="revText" class="form-input form-textarea" placeholder="Your Review *" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary btn-full">Submit Review</button>
-          </form>
-        </div>
-
-        <!-- Testimonials Grid -->
-        <div class="testimonials-grid reveal" id="testimonialsTrack" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-          <!-- Loaded via JS -->
+            <button class="testi-btn" id="testiNext">→</button>
+          </div>
         </div>
       </div>
     </section>
@@ -2214,7 +2225,7 @@
           <div class="section-tag">What We Stand For</div>
           <h2 class="section-title">Our Core <em>Values</em></h2>
         </div>
-        <div class="values-grid" id="valuesGrid">
+        <div class="values-grid">
           <div class="value-card reveal" style="--delay:0s">
             <div class="value-num">01</div>
             <h3>Integrity</h3>
@@ -2246,7 +2257,7 @@
           <div class="section-tag">The People</div>
           <h2 class="section-title">Meet the <em>Team</em></h2>
         </div>
-        <div class="team-grid" id="teamGrid">
+        <div class="team-grid">
           <div class="team-card glass-card reveal" style="--delay:0s">
             <div class="team-img-wrap">
               <div class="team-img-placeholder">AJ</div>
@@ -2318,7 +2329,7 @@
 
     <section class="section">
       <div class="container">
-        <div class="services-grid" id="servicesGrid">
+        <div class="services-grid">
           <div class="service-card glass-card reveal" style="--delay:0s">
             <div class="service-icon">⬡</div>
             <h3 class="service-title">Residential Construction</h3>
@@ -2395,7 +2406,7 @@
     <section class="section">
       <div class="container">
         <div class="contact-layout">
-          <div class="contact-info reveal" id="contactInfo">
+          <div class="contact-info reveal">
             <h3 class="contact-info-title">Contact Details</h3>
             <div class="contact-detail">
               <div class="contact-icon">📍</div>
@@ -2434,25 +2445,25 @@
 
           <div class="contact-form-wrap glass-card reveal reveal-delay">
             <h3 class="form-title">Send Us a Message</h3>
-            <form class="contact-form" id="consultationForm">
+            <form class="contact-form" id="contactForm">
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">Your Name</label>
-                  <input type="text" class="form-input" id="contactName" placeholder="John Doe" required />
+                  <input type="text" class="form-input" placeholder="John Doe" required />
                 </div>
                 <div class="form-group">
                   <label class="form-label">Email Address</label>
-                  <input type="email" class="form-input" id="contactEmail" placeholder="john@email.com" required />
+                  <input type="email" class="form-input" placeholder="john@email.com" required />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label">Phone Number</label>
-                  <input type="tel" class="form-input" id="contactPhone" placeholder="+91 98765 43210" />
+                  <input type="tel" class="form-input" placeholder="+91 98765 43210" />
                 </div>
                 <div class="form-group">
                   <label class="form-label">Service Required</label>
-                  <select class="form-input form-select" id="contactService">
+                  <select class="form-input form-select">
                     <option value="">Select a service</option>
                     <option>Residential Construction</option>
                     <option>Commercial Construction</option>
@@ -2465,7 +2476,7 @@
               </div>
               <div class="form-group">
                 <label class="form-label">Your Message</label>
-                <textarea class="form-input form-textarea" id="contactMessage" placeholder="Tell us about your project..."
+                <textarea class="form-input form-textarea" placeholder="Tell us about your project..."
                   rows="5"></textarea>
               </div>
               <button type="submit" class="btn-primary btn-full">Send Message</button>
@@ -2482,13 +2493,12 @@
     <div class="footer-glow"></div>
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand" id="footerBrand">
-          <a href="#home" class="nav-logo page-link" data-page="home" id="footerLogoLink">
-            <img id="footerLogoImg" src="Icon.png" alt="Logo" style="width:36px;height:36px;border-radius:8px;object-fit:contain;background:#fff;padding:2px;display:none;" />
-            <span class="logo-icon" id="footerLogoIcon">⬡</span>
-            <span class="logo-text" id="footerLogoText">VASTUTEJ <span class="logo-sub" id="footerLogoSub">INFRATECH</span></span>
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo page-link" data-page="home">
+            <span class="logo-icon">⬡</span>
+            <span class="logo-text">VASTUTEJ <span class="logo-sub">INFRATECH</span></span>
           </a>
-          <p class="footer-about" id="footerAbout">Building modern spaces with precision, trust, and a commitment to excellence since
+          <p class="footer-about">Building modern spaces with precision, trust, and a commitment to excellence since
             2009.</p>
           <div class="footer-socials">
             <a href="#" class="f-social">in</a>
@@ -2518,7 +2528,7 @@
         </div>
         <div class="footer-col">
           <h4 class="footer-heading">Contact</h4>
-          <ul class="footer-links footer-contact" id="footerContact">
+          <ul class="footer-links footer-contact">
             <li>Plot No. 42, Industrial Area,<br />Sangli – 416416</li>
             <li>+91 9876 543 210</li>
             <li>info@vastutejinfratech.com</li>
@@ -2526,7 +2536,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p id="footerCopyright">© 2026 Vastutej Infratech. All Rights Reserved.</p>
+        <p>© 2024 Vastutej Infratech. All Rights Reserved.</p>
         <p>Designed By SvoraIQ Media LLP</p>
       </div>
     </div>
@@ -2672,6 +2682,24 @@
       observer.observe(statsSection);
     }
 
+    // ─── TESTIMONIALS SLIDER ───────────────────────────────────
+    let testiIndex = 0;
+    const track = document.getElementById('testimonialsTrack');
+    const dots = document.querySelectorAll('.testi-dot');
+    const total = 3;
+
+    function goToTesti(index) {
+      testiIndex = (index + total) % total;
+      if (track) track.style.transform = `translateX(-${testiIndex * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === testiIndex));
+    }
+
+    document.getElementById('testiNext')?.addEventListener('click', () => goToTesti(testiIndex + 1));
+    document.getElementById('testiPrev')?.addEventListener('click', () => goToTesti(testiIndex - 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goToTesti(i)));
+
+    // Auto advance
+    setInterval(() => goToTesti(testiIndex + 1), 5000);
 
     // ─── PROJECTS PAGE ─────────────────────────────────────────
     function renderProjects(filter) {
@@ -2738,65 +2766,6 @@
     }, { passive: true });
 
   </script>
-  <!-- LIGHTBOX MODAL -->
-  <div id="lightboxModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
-    <button onclick="closeLightbox()" style="position:absolute; top:20px; right:30px; background:transparent; border:none; color:white; font-size:40px; cursor:pointer; z-index:10000;">&times;</button>
-    <div style="position:relative; width:90%; height:80%; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-      <button onclick="prevLightboxImage()" style="position:absolute; left:10px; background:rgba(255,255,255,0.2); border:none; color:white; font-size:40px; padding:10px 20px; cursor:pointer; border-radius:5px; z-index:10000;">&#10094;</button>
-      <img id="lightboxImage" src="" style="max-width:100%; max-height:100%; object-fit:contain; transition: transform 0.3s ease; cursor:zoom-in;" onclick="toggleZoom(this)" />
-      <button onclick="nextLightboxImage()" style="position:absolute; right:10px; background:rgba(255,255,255,0.2); border:none; color:white; font-size:40px; padding:10px 20px; cursor:pointer; border-radius:5px; z-index:10000;">&#10095;</button>
-    </div>
-    <div id="lightboxCaption" style="color:white; margin-top:20px; font-size:20px; text-align:center;"></div>
-  </div>
-
-  <script>
-    // Lightbox Global State
-    window.lightboxImages = [];
-    window.lightboxCurrentIndex = 0;
-    
-    function openLightbox(images, index, title) {
-      if (!images || images.length === 0) return;
-      window.lightboxImages = images;
-      window.lightboxCurrentIndex = index;
-      document.getElementById('lightboxCaption').innerText = title || '';
-      document.getElementById('lightboxModal').style.display = 'flex';
-      updateLightboxImage();
-    }
-    
-    function closeLightbox() {
-      document.getElementById('lightboxModal').style.display = 'none';
-      const img = document.getElementById('lightboxImage');
-      img.style.transform = 'scale(1)'; // reset zoom
-      img.style.cursor = 'zoom-in';
-    }
-    
-    function prevLightboxImage() {
-      window.lightboxCurrentIndex = (window.lightboxCurrentIndex - 1 + window.lightboxImages.length) % window.lightboxImages.length;
-      updateLightboxImage();
-    }
-    
-    function nextLightboxImage() {
-      window.lightboxCurrentIndex = (window.lightboxCurrentIndex + 1) % window.lightboxImages.length;
-      updateLightboxImage();
-    }
-    
-    function updateLightboxImage() {
-      const img = document.getElementById('lightboxImage');
-      img.style.transform = 'scale(1)'; // reset zoom on change
-      img.style.cursor = 'zoom-in';
-      img.src = window.lightboxImages[window.lightboxCurrentIndex];
-    }
-
-    function toggleZoom(img) {
-      if (img.style.transform === 'scale(2)') {
-        img.style.transform = 'scale(1)';
-        img.style.cursor = 'zoom-in';
-      } else {
-        img.style.transform = 'scale(2)';
-        img.style.cursor = 'zoom-out';
-      }
-    }
-  </script>
-  <script type="module" src="firebase-website.js"></script>
 </body>
+
 </html>
