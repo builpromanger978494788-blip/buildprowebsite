@@ -317,7 +317,7 @@ function updateTestimonials(reviews) {
     const stars = "⭐".repeat(rating);
     
     return `
-    <div class="glass-card reveal visible" style="display:flex; flex-direction:column; padding:2rem; min-height: 200px; width: 350px; max-width: 100%;">
+    <div class="glass-card reveal visible" style="display:flex; flex-direction:column; padding:2rem; min-height: 200px; width: 100%; max-width: 350px;">
       <div style="font-size:18px; margin-bottom:15px; color: var(--gold); letter-spacing: 2px;">${stars}</div>
       <p class="testi-text" style="flex:1; font-size:1.1rem; line-height:1.6; margin-bottom: 20px;">"${r.text}"</p>
       <div class="testi-author" style="display: flex; align-items: center; gap: 15px;">
