@@ -1044,20 +1044,9 @@
 
     .masonry-card img {
       width: 100%;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       transition: transform 0.6s ease;
-    }
-
-    .masonry-card:nth-child(3n+2) img {
-      height: 320px;
-    }
-
-    .masonry-card:nth-child(3n+1) img {
-      height: 380px;
-    }
-
-    .masonry-card:nth-child(3n) img {
-      height: 290px;
     }
 
     .masonry-card:hover img {
@@ -2210,8 +2199,6 @@
             <div class="about-img-stack">
               <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Construction"
                 class="about-img-main" />
-              <img src="https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=300&q=80" alt="Detail"
-                class="about-img-small" />
             </div>
           </div>
         </div>
@@ -2714,6 +2701,7 @@
         const card = document.createElement('div');
         card.className = 'masonry-card reveal';
         card.style.setProperty('--delay', `${i * 0.08}s`);
+        card.onclick = () => { if(window.openLightbox) window.openLightbox([p.img], 0, p.title); };
         card.innerHTML = `
       <img src="${p.img}" alt="${p.title}" loading="lazy" />
       <div class="masonry-info">
