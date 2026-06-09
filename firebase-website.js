@@ -241,15 +241,23 @@ function updateTeam(team) {
 function updateServices(services) {
   if (!services || !services.list || !services.list.length) return;
   const grid = document.getElementById("servicesGrid");
-  if (!grid) return;
-  grid.innerHTML = services.list.map((s, i) => `
-    <div class="service-card glass-card reveal visible" style="--delay:${i * 0.1}s">
-      <div class="service-icon">${s.icon || '⬡'}</div>
-      <h3 class="service-title">${s.title}</h3>
-      <p class="service-desc">${s.description}</p>
-      <a href="#contact" class="service-link page-link" data-page="contact">Enquire →</a>
-    </div>
-  `).join("");
+  if (grid) {
+    grid.innerHTML = services.list.map((s, i) => `
+      <div class="service-card glass-card reveal visible" style="--delay:${i * 0.1}s">
+        <div class="service-icon">${s.icon || '⬡'}</div>
+        <h3 class="service-title">${s.title}</h3>
+        <p class="service-desc">${s.description}</p>
+        <a href="#contact" class="service-link page-link" data-page="contact">Enquire →</a>
+      </div>
+    `).join("");
+  }
+
+  const footerList = document.getElementById("footerServicesList");
+  if (footerList) {
+    footerList.innerHTML = services.list.slice(0, 5).map(s => `
+      <li><a href="#services" class="page-link" data-page="services">${s.title}</a></li>
+    `).join("");
+  }
 }
 
 // ─── CONTACT INFO ───
